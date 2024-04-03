@@ -19,6 +19,7 @@ if [ ! -f /usr/bin/lsb_release ]; then
 		echo "This script must be run on a system running one of the following OS-es:"
 		echo "* Debian 10 (buster)"
 		echo "* Debian 11 (bullseye)"
+  		echo "* Debian 12 (bullseye)"
 		echo "* Ubuntu 20.04 LTS (Focal Fossa)"
 		exit 1
 	fi
@@ -33,6 +34,7 @@ if [ -z "$TAG" ]; then
 	OS=$(lsb_release -d | sed 's/.*:\s*//')
 	if  [ "$OS" == "Debian GNU/Linux 10 (buster)" ] ||
 		[ "$OS" == "Debian GNU/Linux 11 (bullseye)" ] ||
+  		[ "$OS" == "Debian GNU/Linux 12 (bookworm)" ] ||
 		[ "$(echo $OS | grep -o 'Ubuntu 20.04')" == "Ubuntu 20.04" ]
 	then
 		TAG=v56.5
